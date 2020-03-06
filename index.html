@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/country-flag.css">
+    <link rel="stylesheet" href="css/circle.css">
+  </head>
+  <body>
+    <div id="load-container">
+      <div class="load-display">
+        <span id="load-message"><span id="counter">0</span> Schulen von <span id="total-count">0</span> geladen</span><br>
+        <div id="load-progress"></div>
+        <div id="load-errors"></div>
+      </div>
+    </div>
+    <header>
+      <button class="button" style="float: right;" onclick="updateSchools();">Update</button>
+      <h1>DB Control Center</h1>
+      <div class="settings-box">
+        <div class="item">
+          <label for="filter"><strong>Filtern nach:</strong></label>
+          <select id="filter" onchange="useFilter(this);">
+              <option value="none" selected>Kein Filter</option>
+            <optgroup label="Bearbeiter">
+              <option value="advisor,Dagmar">Dagmar</option>
+              <option value="advisor,Elke">Elke</option>
+              <option value="advisor,Sabine">Sabine</option>
+              <option value="advisor,Imke">Imke</option>
+              <option value="advisor,Susanne">Susanne</option>
+            </optgroup>
+            <optgroup label="Sprache">
+              <option value="language,en">🇬🇧 Englisch</option>
+              <option value="language,es">🇪🇸 Spanisch</option>
+              <option value="language,fr">🇫🇷 Französisch</option>
+              <option value="language,it">🇮🇹 Italienisch</option>
+              <option value="language,pt">🇵🇹 Portugiesisch</option>
+              <option value="language,gr">🇬🇷 Griechisch</option>
+              <option value="language,tr">🇹🇷 Türkisch</option>
+              <option value="language,ru">🇷🇺 Russisch</option>
+              <option value="language,zh">🇨🇳 Chinesisch</option>
+              <option value="language,pl">🇵🇱 Polnisch</option>
+              <option value="language,de">🇩🇪 Deutsch</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="item">
+          <label for="sort"><strong>Standardmäßig sortieren nach:</strong></label>
+          <select id="sort" onchange="useSort(this);">
+            <option value="id">ID</option>
+            <option value="language">Sprache</option>
+            <option value="country">Land</option>
+            <option value="name">Schulname</option>
+            <option value="city">Stadt</option>
+            <option value="url">Url</option>
+            <option value="advisor">Bearbeiter</option>
+            <option value="courses">Kursinfo</option>
+          </select>
+        </div>
+        <div class="item">
+          <strong>Suchen: </strong><input type="text" placeholder="Suchen nach Name oder Ort" onkeyup="searchNamesAndCities(this)">
+        </div>
+      </div>
+    </header>
+    <main></main>
+    <script type="text/javascript" src="data/configData.js"></script>
+    <script src="js/country-flag.js"></script>
+    <script src="js/tinysort.min.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/sort.js"></script>
+  </body>
+</html>
